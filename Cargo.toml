@@ -1,0 +1,28 @@
+# fuse-monitor/Cargo.toml
+[workspace]
+members = [
+    "crates/core",
+    "crates/api",
+    "crates/common"
+]
+
+[workspace.dependencies]
+# 文件系统监控
+notify = "5.0"           # 文件系统事件监控
+walkdir = "2.3"          # 文件系统遍历
+# Web 框架
+axum = "0.6"            # Web 框架
+tokio = { version = "1.0", features = ["full"] } # 异步运行时
+# 数据库
+sqlx = { version = "0.6", features = ["runtime-tokio-rustls", "postgres"] }
+# 序列化
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+# 日志
+tracing = "0.1"
+tracing-subscriber = "0.3"
+# 配置
+config = "0.13"
+# 错误处理
+anyhow = "1.0"
+thiserror = "1.0"
